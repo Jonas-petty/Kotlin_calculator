@@ -9,8 +9,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.np.mykotlinapp.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity() {
+
+    lateinit var binding: ActivityMainBinding
+
+    lateinit var btnSeven : Button
 
     lateinit var btnAdd : Button
     lateinit var btnSub : Button
@@ -31,6 +36,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             insets
         }
 
+        var regularKeyboard = RegularKeyboard()
+
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container, regularKeyboard)
+            commit()
+        }
+
+
+
+/*
         btnAdd = findViewById(R.id.btn_add)
         btnSub = findViewById(R.id.btn_subtraction)
         btnMultiply = findViewById(R.id.btn_multiplication)
@@ -67,5 +82,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
         resultTv.text = "Result is $result"
+
+ */
     }
 }
